@@ -1,0 +1,36 @@
+<html>
+<style>
+#source { margin:10px; width:40%; height:20vh; display:"inline"}
+#target { margin:10px; width:40%; height:20vh; display:"inline"; border:dotted #336699 1px; }
+button  { margin:10px;  }
+</style>
+<body>
+<textarea id="source">
+a dog chase a cat
+</textarea>
+<div id="target">
+</div>
+<button onclick="doMt()">翻譯</button>
+<script>
+var sourceBox = document.getElementById("source");
+var targetBox = document.getElementById("target");
+var e2c = { dog:"狗", cat:"貓", a: "一", chase:"追", eat:"吃" };
+
+function doMt() {
+  var ewords = sourceBox.value.split(/\s/);
+  var cwords = mt(ewords);
+  targetBox.innerHTML = cwords.join(' ');
+}
+
+function mt(e) {
+  var c = [];
+  for (i in e) {
+    var eword = e[i];
+    var cword = e2c[eword];
+    c.push(cword);
+  }
+  return c;
+}
+</script>
+</body>
+</html>

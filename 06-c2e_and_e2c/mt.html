@@ -1,0 +1,67 @@
+<html>
+<style>
+#source { margin:10px; padding:10px; width:90%; height:30vh; display:"inline"; line-height:180%; }
+#target { margin:10px; padding:10px; width:90%; height:30vh; display:"inline"; border:dotted #336699 1px; line-height:180%;  }
+button, input { margin:10px; padding:10px; }
+</style>
+<body>
+<textarea id="source">
+一 狗 追 一 貓 
+我 是 驕傲 of 你 
+你 可以 談話 to 美國人 in 中文 by 機器 翻譯 工具 
+狗 談話 to 貓 in 中文 with 機器 翻譯 工具
+我 是 驕傲 of 狗
+</textarea><br/>
+<input id="c2e" name="mtType" type="radio" checked>中翻英 <input id="e2c" name="mtType" type="radio">英翻中
+<div id="target">
+</div>
+<script>
+var sourceBox = document.getElementById("source");
+var targetBox = document.getElementById("target");
+var e2c = { dog:"狗", cat:"貓", a: "一", chase:"追", eat:"吃",
+            i:"我", am:"是", proud:"驕傲", of:"of", you:"你", 
+            may:"可以", talk:"談話", american:"美國人", 
+            chinese:"中文", machine:"機器", translation:"翻譯", tool:"工具" };
+var c2e = rev(e2c);
+
+function rev(s2t) {
+  var t2s = {};
+  for (var s in s2t) {
+    var t = s2t[s];
+    t2s[t] = s;
+  }
+  return t2s;
+}
+
+function doMt() {
+  var twords, swords = sourceBox.value.replace(/\n/g, " <br/> ").split(/[ ]+/);
+  if (document.getElementById("c2e").checked)
+    twords = mt(swords, c2e);
+  else
+    twords = mt(swords, e2c);
+  targetBox.innerHTML = twords.join(' ');
+}
+
+function mt(s, s2t) {
+  var t = [];
+  for (i in s) {
+    var sword = s[i].toLowerCase();
+    var tword = s2t[sword];
+    if (typeof tword === 'undefined')
+      tword = sword;
+    t.push(tword);
+  }
+  return t;
+}
+
+window.onload = function() {
+  doMt();
+	sourceBox.addEventListener("keyup", function(event) {
+		event.preventDefault();
+    doMt();
+	});
+}
+
+</script>
+</body>
+</html>

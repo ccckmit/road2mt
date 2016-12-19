@@ -1,0 +1,99 @@
+<html>
+<style>
+#source { margin:10px; padding:10px; width:90%; height:30vh; display:"inline"; line-height:180%; }
+#target { margin:10px; padding:10px; width:90%; height:30vh; display:"inline"; border:dotted #336699 1px; line-height:180%;  }
+button, input { margin:10px; padding:10px; }
+</style>
+<body>
+<textarea id="source">
+一隻狗追一隻貓 , 我為你感到驕傲 .
+----------------------------
+a 狗追 a 貓 . 我 am 驕傲 of 你 . 
+你可以談話 to 外國人 in 中文 by 學習英文文法
+你 do not have to 記住 單字 for 學習ing 英文  
+</textarea><br/>
+<input id="c2eRadio" name="mtType" type="radio" checked>中翻英 <input id="e2cRadio" name="mtType" type="radio">英翻中
+<div id="target">
+</div>
+<script src="c2e.js"></script>
+<script src="e2c.js"></script>
+<script>
+var sourceBox = document.getElementById("source");
+var targetBox = document.getElementById("target");
+
+var wordRegex = /([\w']+)|([\u4E00-\u9FFF]+)|([\n\r]+)|(\S+)/gmi;
+
+var clex = function(c2e, text) {
+  var array = [];
+  for (var i=0; i<text.length; ) {
+    for (var len=4; len>=1; len--) {
+      var c = text.substr(i, len);
+      var e = c2e[c];
+      if (len === 1 || typeof e !== "undefined") {
+        array.push(c);
+        break;
+      }
+    }
+    i=i+Math.max(1,len);
+  }
+  return array;
+}
+
+var lex = function(c2e, text) {
+  var words=[], m;
+  while (m = wordRegex.exec(text)) {
+    var word = m[0];
+//    console.log('m=', m);
+    if (typeof m[4] !== 'undefined') {
+      words.push(m[4]);
+    } else if (typeof m[3] !== 'undefined') {
+      words.push(m[3]);
+    } else if (typeof m[2] !== 'undefined') {
+      var cwords = clex(c2e, m[2]);
+      cwords.forEach((c)=>words.push(c));
+    }
+    else
+      words.push(m[1]);
+  }
+  return words;
+}
+
+function doMt() {
+  console.log('text=', sourceBox.value);
+  var text = sourceBox.value.replace(/\r/g, '').replace(/\n/g, '\r');
+  var twords, swords = lex(c2e, text);
+  console.log("swords=", swords);
+  if (document.getElementById("c2eRadio").checked)
+    twords = mt(swords, c2e);
+  else
+    twords = mt(swords, e2c);
+  targetBox.innerHTML = twords.join(' ');
+}
+
+function mt(s, s2t) {
+  var t = [];
+  for (i in s) {
+    var sword = s[i].toLowerCase();
+    if (sword === '\r') 
+      tword = '<br/>';
+    else {
+      var tword = s2t[sword];
+      if (typeof tword === 'undefined')
+        tword = sword;
+    }
+    t.push(tword);
+  }
+  return t;
+}
+
+window.onload = function() {
+  doMt();
+	sourceBox.addEventListener("keyup", function(event) {
+		event.preventDefault();
+    doMt();
+	});
+}
+
+</script>
+</body>
+</html>
