@@ -29,9 +29,13 @@ KB.dic2json = function(s2t, t2s, dic, replace=false) {
   }
 }
 
+var editE2c = fs.readFileSync('./e2c.edit', 'utf-8');
+var editC2e = fs.readFileSync('./c2e.edit', 'utf-8');
 var dicE2c = fs.readFileSync('./e2c.dic', 'utf-8');
 var dicC2e = fs.readFileSync('./c2e.dic', 'utf-8');
 var e2c={}, c2e={};
+KB.dic2json(e2c, c2e, editE2c);
+KB.dic2json(c2e, e2c, editC2e);
 KB.dic2json(e2c, c2e, dicE2c);
 KB.dic2json(c2e, e2c, dicC2e);
 

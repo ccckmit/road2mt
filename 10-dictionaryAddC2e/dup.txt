@@ -791,6 +791,9 @@ held=保持
 // 最大=max
 最大=biggest
 
+// page=頁
+page=頁面
+
 // 某處=somewhere
 某處=someplace
 
@@ -16835,6 +16838,66 @@ rung=梯級
 // 黎明=dawn
 黎明=daybreak
 
+// 到=onto
+到=到
+
+// 再=anymore
+再=再
+
+// 和=and
+和=和
+
+// 來=incoming
+來=來
+
+// 內=within
+內=內
+
+// 中=during
+中=中
+
+// 上=upon
+上=上
+
+// 下=under
+下=下
+
+// 出=out
+出=出
+
+// 由=by
+由=由
+
+// if=如果
+if=若是
+
+// 謹慎=cautious
+謹慎=carefully
+
+// care=關懷
+care=慎
+
+// announce=公佈
+announce=發佈
+
+// text=文本
+text=文字
+
+// comment=評論
+comment=註
+
+// lazy=懶
+lazy=惰
+
+// address=地址
+address=址
+
+// browse=瀏覽
+browse=瀏
+
+// browse=瀏覽
+browse=覽
+
 // me=我
 me=我2
 
@@ -25046,26 +25109,29 @@ decorum=禮儀2
 // daybreak=黎明
 daybreak=黎明2
 
-// of=of
-of=的
+// 的=的
+的=of
 
-// the=the
-the=了
+// 了=了
+了=the
 
-// in=in
-in=在
+// 在=在
+在=in
+
+// is=is
+is=是
 
 // this=這個
 this=這
 
-// 不=not
-不=do not
+// 也=也
+也=also
 
-// on=on
-on=就
+// 就=就
+就=on
 
-// ground=地面
-ground=地
+// 地=地
+地=ground
 
 // with=with
 with=著
@@ -25115,11 +25181,8 @@ also=又
 // 等=et
 等=wait
 
-// 她=she
-她=she was
-
 // 去=going
-去=go with
+去=go
 
 // in=in
 in=裡
@@ -25133,11 +25196,8 @@ time=時
 // 多=much
 多=many
 
-// 發展=development
-發展=development of
-
-// use=使用
-use=用
+// 用=用
+用=use
 
 // that=那個
 that=那
@@ -25163,9 +25223,6 @@ it=之
 // are=are
 are=被
 
-// 這個=this
-這個=this one
-
 // meeting=會議
 meeting=會
 
@@ -25182,7 +25239,7 @@ can=可
 社會=society
 
 // 進行=conducted
-進行=get on
+進行=go_on
 
 // 工作=work
 工作=jobs
@@ -25193,26 +25250,17 @@ can=可
 // it=它
 it=呢
 
-// in=in
-in=於
+// 於=於
+於=in
 
 // 其=thereof
 其=its
 
-// 起來=standup
-起來=stand up
-
 // live=生活
 live=過
 
-// 不能=cannot
-不能=can not
-
 // and=和
 and=並
-
-// 這些=these
-這些=these ones
 
 // 生產=production
 生產=produce
@@ -25221,7 +25269,10 @@ and=並
 將=will
 
 // 想=think
-想=miss you
+想=miss
+
+// several=幾個
+several=幾
 
 // no=沒有
 no=不是
@@ -25256,8 +25307,8 @@ country=我國
 // effect=效果
 effect=作用
 
-// only=只
-only=才
+// 才=才
+才=only
 
 // people=人
 people=人們
@@ -25265,20 +25316,14 @@ people=人們
 // but=但
 but=但是
 
-// 現在=now
-現在=just now
-
-// then=然後
-then=則
+// 則=則
+則=then
 
 // 所以=so
 所以=and so
 
-// 如果=if
-如果=in case
-
 // 一定=necessarily
-一定=for sure
+一定=sure
 
 // they=他們
 they=們
@@ -25301,8 +25346,8 @@ two=二
 // secondary=次要
 secondary=次
 
-// then=然後
-then=便
+// 便=便
+便=then
 
 // time=時間
 time=時候
@@ -25311,7 +25356,7 @@ time=時候
 做=do
 
 // 必須=must
-必須=have to
+必須=muse
 
 // 人民=peoples
 人民=people
@@ -25331,9 +25376,6 @@ right=嗎
 // also=還
 also=也是
 
-// 許多=many
-許多=a lot of
-
 // 通過=through
 通過=by
 
@@ -25347,7 +25389,7 @@ thought=思想
 叫=call
 
 // 為了=sake
-為了=in order to
+為了=for
 
 // 比=than
 比=ratio
@@ -25394,9 +25436,6 @@ they=它們
 // 性=sexually
 性=sex
 
-// 表現=behave
-表現=which performed
-
 // 產生=generate
 產生=produce
 
@@ -25412,6 +25451,9 @@ by=者
 // 沒=didn
 沒=no
 
+// several=幾個
+several=各種
+
 // 家=home
 家=family
 
@@ -25423,12 +25465,6 @@ by=者
 
 // 可能=possible
 可能=may
-
-// 根據=according
-根據=according to
-
-// and also=也
-and also=還有
 
 // 話=saying
 話=words
@@ -25450,6 +25486,9 @@ but=可是
 
 // with=with
 with=跟
+
+// and=和
+and=以及
 
 // see=看見
 see=見
@@ -25512,7 +25551,7 @@ how=怎麼
 after=經過
 
 // 提出=pose
-提出=put forward
+提出=propose
 
 // 領導=leading
 領導=leadership
@@ -25535,6 +25574,9 @@ no=無
 // 決定=decided
 決定=decide
 
+// phenomenon=現象
+phenomenon=現像
+
 // 受=subjected
 受=receive
 
@@ -25554,7 +25596,7 @@ industry=工業
 啊=what
 
 // 建立=establish
-建立=set up
+建立=set_up
 
 // 管理=manage
 管理=management
@@ -25604,9 +25646,6 @@ period=時期
 // 另=separate
 另=another
 
-// 其中=among
-其中=among them
-
 // ability=能力
 ability=才能
 
@@ -25623,7 +25662,7 @@ then=當時
 because=因
 
 // 美國=american
-美國=united states
+美國=US
 
 // 解決=settle
 解決=solve
@@ -25647,7 +25686,7 @@ that=該
 注意=note
 
 // 群眾=masses
-群眾=the masses
+群眾=population
 
 // contact=聯繫
 contact=聯係
@@ -25659,7 +25698,7 @@ once=曾
 水平=level
 
 // 當然=certainly
-當然=of course
+當然=of_course
 
 // already=已經
 already=既
@@ -26096,9 +26135,6 @@ run=經營
 // 某些=certain
 某些=some
 
-// it is=是
-it is=正是
-
 // objective=目標
 objective=客觀
 
@@ -26477,9 +26513,6 @@ major=重大
 // 進步=advances
 進步=progress
 
-// a little=一點
-a little=有點
-
 // 英國=england
 英國=united kingdom
 
@@ -26656,9 +26689,6 @@ end=底
 
 // each=每
 each=每個
-
-// not only=不僅
-not only=不但
 
 // 前面=fore
 前面=front
@@ -27305,8 +27335,8 @@ really=真的
 // never=從來沒有
 never=決不
 
-// writing=寫作
-writing=文字
+// 文字=text
+文字=writing
 
 // 工程=project
 工程=engineering
@@ -27421,9 +27451,6 @@ read=讀
 
 // has=有
 has=先後
-
-// that is,=就是
-that is,=也就是
 
 // must=必須
 must=須
@@ -28415,7 +28442,7 @@ god=上帝
 // strike=罷工
 strike=走向
 
-// a little=一點
+// a little=有點
 a little=稍
 
 // convenience=便利
@@ -29132,9 +29159,6 @@ reading=讀書
 // yield=產量
 yield=產
 
-// page=頁面
-page=頁
-
 // kind=種
 kind=樣
 
@@ -29425,9 +29449,6 @@ took=走上
 
 // 夾=lined
 夾=folder
-
-// as well as=以及
-as well as=以至
 
 // preparation=準備
 preparation=劑
@@ -30971,7 +30992,7 @@ should=不應
 // experience=經驗
 experience=體會
 
-// it is=是
+// it is=正是
 it is=是以
 
 // seizure=發作
@@ -36719,7 +36740,7 @@ die=去世
 // leader=領導者
 leader=首領
 
-// a little=一點
+// a little=有點
 a little=稍微
 
 // program=計劃
@@ -37481,7 +37502,7 @@ energy=電能
 // 寧靜=serenity
 寧靜=peaceful
 
-// not only=不僅
+// not only=不但
 not only=不只是
 
 // spread=傳播
@@ -37703,7 +37724,7 @@ lose=失掉
 // midnight=午夜
 midnight=半夜
 
-// not only=不僅
+// not only=不但
 not only=不光
 
 // 沙灘=sands
@@ -37726,9 +37747,6 @@ outline=大綱
 
 // 預計=expects
 預計=forecast
-
-// come out=出來
-come out=問世
 
 // write=寫
 write=書寫
@@ -40667,9 +40685,6 @@ breed=孕育
 // demeanor=神態
 demeanor=風度
 
-// all kinds=各種
-all kinds=形形色色
-
 // 慰問=condolences
 慰問=condolence
 
@@ -40763,7 +40778,7 @@ monarch=辟
 // flood=洪水
 flood=大水
 
-// not only=不僅
+// not only=不但
 not only=不只
 
 // 鎮靜=calms
@@ -41309,7 +41324,7 @@ arranged=包辦
 // 起飛=takeoff
 起飛=take off
 
-// all kinds=各種
+// all kinds=形形色色
 all kinds=各式各樣
 
 // lining=襯裡
@@ -43436,8 +43451,8 @@ proposal=提案
 // recover=恢復
 recover=收復
 
-// in=in
-in=於
+// 於=於
+於=in
 
 // find out=找出
 find out=查出
@@ -47404,6 +47419,9 @@ leave=告辭
 
 // for example=譬如
 for example=譬如說
+
+// browse=瀏覽
+browse=翻閱
 
 // dimension=尺寸
 dimension=維
