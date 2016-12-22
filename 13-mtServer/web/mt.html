@@ -1,0 +1,80 @@
+<html>
+<style>
+div, textarea { float: left; }
+#source { margin:10px; padding:10px; padding:10px; width:45%; height:84vh; display:"inline"; line-height:180%; }
+#target { overflow:auto; margin:10px; padding:10px; width:45%; height:80vh; display:"inline"; border:dotted #336699 1px; line-height:180%;  }
+button, input { margin:10px; padding:10px; }
+</style>
+<body>
+<input id="c2eRadio" name="mtType" type="radio" checked>中翻英 <input id="e2cRadio" name="mtType" type="radio">英翻中<br/>
+<textarea id="source">
+一隻狗追一隻貓 , 我為你感到驕傲 . 我希望你一切順利
+----------------------------
+A 狗追 a 貓 . 我 am 驕傲 of 你 . May 上帝保佑你.
+你可以交談 to 外國人 in 中文 by 學習英文文法.
+你 do not have to 記住 單字 for 學習ing 英文.
+Don't 告訴 me that 你有一百萬美元s.
+
+</textarea>
+<div id="target">
+</div>
+<script src="mt.js"></script>
+<script>
+var sourceBox = document.getElementById("source");
+var targetBox = document.getElementById("target");
+
+function translate(line, s2t) {
+  var swords = mt.lex(line, mt.c2e);
+  var twords = mt.mt(swords, s2t);
+  var toLine = twords.join(' ').replace(/([>\.,]\s*)(\w)/g, function(match,$1,$2) {
+    return $1+$2.toUpperCase();
+  });
+  return toLine.replace(/^(\w)/, function(match,$1) {
+    return $1.toUpperCase();
+  });
+}
+
+function doMt() {
+  var s2t=document.getElementById("c2eRadio").checked?mt.c2e:mt.e2c;
+  var mtResult = [];
+  var lines = sourceBox.value.replace(/[<>]/g, '').split(/[\n\."]/);
+  for (var i=0; i<lines.length; i++) {
+    var line = lines[i];
+    if (line.trim()==="") continue;
+    mtResult.push(line);
+    mtResult.push(translate(line, s2t));
+    mtResult.push("");
+  }
+  targetBox.innerHTML = mtResult.join("<br/>\n");
+/*  
+  var text = sourceBox.value.replace(/\r/g, '').replace(/\n/g, ' __br__ ').replace(/[<>]/g, '');
+  var twords, swords = mt.lex(text, mt.c2e);
+  if (document.getElementById("c2eRadio").checked)
+    twords = mt.mt(swords, mt.c2e);
+  else
+    twords = mt.mt(swords, mt.e2c);
+  targetBox.innerHTML = twords.join(' ').replace(/([>\.]\s*)(\w)/g, function(match,$1,$2) {
+    return $1+$2.toUpperCase();
+  });
+*/  
+/*
+div, textarea {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    float: left;
+}
+*/
+
+}
+
+window.onload = function() {
+  doMt();
+	sourceBox.addEventListener("keyup", function(event) {
+		event.preventDefault();
+    doMt();
+	});
+}
+</script>
+</body>
+</html>

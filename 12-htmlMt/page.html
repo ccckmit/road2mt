@@ -1,0 +1,849 @@
+eHtml= <!DOCTYPE html>
+<!-- saved from url=(0019)http://markdown.tw/ -->
+<html lang="zh-TW" class="han-biaodian-pro-cns han-la wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+<title>Markdown grammar explain</title>
+<link rel="stylesheet" media="all" href="./Markdown_files/han.min.css">
+<link rel="stylesheet" media="all" href="./Markdown_files/main.css">
+<meta property="og:title" content="Markdown 語法說明">
+<meta property="og:url" content="http://markdown.tw/">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Markdown 是很簡單的純文件格式，由於語法設計得好，近幾年廣泛應用在各種領域，包括 Github、Stack Overflow 等知名的網路服務都使用它，本網頁為該語法的中文說明">
+<meta property="og:image" content="http://markdown.tw/images/208x128.png">
+<meta property="og:image:width" content="208">
+<meta property="og:image:height" content="128">
+<script type="text/javascript" async="" src="./Markdown_files/ga.js.下載"></script><script type="text/javascript" async="" src="./Markdown_files/embed.js.下載"></script><style>.tk-source-han-sans-traditional{font-family:"source-han-sans-traditional",sans-serif;}</style><style></style></head>
+<body class="tk-source-han-sans-traditional" style="font-family: -apple-system">
+<nav>
+<a href="http://markdown.tw/">file</a>
+<a href="http://markdown.tw/resources.html">resources</a>
+<a href="http://commonmark.org/">standard</a>
+<a href="https://github.com/othree/markdown-syntax-zhtw/issues">return mistake</a>
+</nav>
+ 
+<div class="wikistyle">
+<h1>Markdown file</h1>
+
+<p><img src="./Markdown_files/208x128.png" alt="Markdown" title=""></p>
+
+<p><strong>NOTE :</strong>This is Traditional Chinese Edition Document of 
+ Markdown Syntax . If you are seeking for English Edition 
+ Document . Please refer to<a href="http://daringfireball.net/projects/markdown/syntax">Markdown : Syntax</a>.</p>
+
+<h1>Markdown : Syntax</h1>
+
+<ul>
+<li><a href="http://markdown.tw/#overview">general state</a>
+<ul>
+<li><a href="http://markdown.tw/#philosophy">philosophy</a></li>
+<li><a href="http://markdown.tw/#html">line 內 HTML</a></li>
+<li><a href="http://markdown.tw/#autoescape">special character2 automatically converted</a></li>
+</ul></li>
+<li><a href="http://markdown.tw/#block">block element</a>
+<ul>
+<li><a href="http://markdown.tw/#p">paragraph 和 change line</a></li>
+<li><a href="http://markdown.tw/#header">heading</a></li>
+<li><a href="http://markdown.tw/#blockquote">block quoted speech</a></li>
+<li><a href="http://markdown.tw/#list">list</a></li>
+<li><a href="http://markdown.tw/#precode">code block</a></li>
+<li><a href="http://markdown.tw/#hr">split line2</a></li>
+</ul></li>
+<li><a href="http://markdown.tw/#span">district segment element</a>
+<ul>
+<li><a href="http://markdown.tw/#link">link</a></li>
+<li><a href="http://markdown.tw/#em">stressed</a></li>
+<li><a href="http://markdown.tw/#code">code</a></li>
+<li><a href="http://markdown.tw/#img">picture</a></li>
+</ul></li>
+<li><a href="http://markdown.tw/#misc">other</a>
+<ul>
+<li><a href="http://markdown.tw/#backslash">jump take off character2</a></li>
+<li><a href="http://markdown.tw/#autolink">automatically link</a></li>
+</ul></li>
+<li><a href="http://markdown.tw/#acknowledgement">grateful</a></li>
+</ul>
+
+<p><strong>attention ：</strong>this 份 file 是 用 Markdown write 的 ， you could<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md">look it 的 primitive files</a>。</p>
+
+<hr>
+
+<h2 id="overview">general state</h2>
+
+<h3 id="philosophy">philosophy</h3>
+
+<p>Markdown 的 target 是 realize 「 easy read easy write 」 。</p>
+
+<p>but most need stressed 的 is it 的 can read 性 。 one 份 use Markdown format write 的 file should could direct 以 pure text announce ， and looks unlikely like 由 many tag or format instruction 所 constitutional 。 Markdown grammar receive some already have text - to - HTML format 的 influence ， includes<a href="http://docutils.sourceforge.net/mirror/setext.html">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/">atx</a>、<a href="http://textism.com/tools/textile/">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html">Grutatext</a>和<a href="http://ettext.taint.org/doc/">EtText</a>， however max inspired source actually 是 pure text 的 email format 。</p>
+
+<p>therefore Markdown 的 grammar all 由 marked point symbol 所 composition ， and after rigorous care selected ， 是 sake let they looks 就 像 所 要 express 的 meaning 。 like 在 text both sides plus star number ， looks 就 像 * stressed * 。 Markdown 的 list looks ， hmm ， 就 是 list 。 if you have use live email ， block quoted speech looks 就 really like quote one segment text 。</p>
+
+<h3 id="html">line 內 HTML</h3>
+
+<p>Markdown 的 grammar have 個 major 的 purpose ： 用 來 as one kind web road content 的<em>writing</em>term speech 。</p>
+
+<p>Markdown 不是 要 來 replace HTML ， even 也 no 要 和 it resemblance ， it 的 grammar species 不 much ， only 和 HTML 的 portion related ， focused<em>不是</em>要 creating one kind more easy writing HTML file 的 grammar ， i think HTML already very easy write 了 ， Markdow 的 focused lie_in ， it able let file more easy read 、 write 。 HTML 是 one kind<em>announce</em>的 format ， Markdown 是 one kind<em>write</em>的 format ， therefore ， Markdown 的 format grammar only cover pure text could cover 的 range 。</p>
+
+<p>不 在 Markdown cover range addition 的 tag ， all could direct 在 file inside 用 HTML write 。 without 要 extra marked comment this 是 HTML or Markdown ； just direct plus tag 就 could 了 。</p>
+
+<p>only block element ─ ─ such as<code>&lt; div &gt;</code>、<code>&lt; table &gt;</code>、<code>&lt; pre &gt;</code>、<code>&lt; p &gt;</code>等 tag ， must 在 before and after plus empty line ， 以 profit versus content district shuts 。 and these （ element ） 的 begin versus end tag ， can not 以 用 tab or blank 來 indent 。 Markdown 的 generate tor have wisdom type judgment ， could avoid 在 block tag before and after plus no necessary 的<code>&lt; p &gt;</code>tag 。</p>
+
+<p>examples for ， 在 Markdown file in plus one segment HTML form ：</p>
+
+<pre><code>This is a regular paragraph . 
+
+ &lt; table &gt; 
+ &lt; tr &gt; 
+ &lt; td &gt; Foo &lt; / td &gt; 
+ &lt; / tr &gt; 
+ &lt; / table &gt; 
+
+ This is another regular paragraph . 
+</code></pre>
+
+<p>please attention ， Markdown grammar 在 HTML block tag 中 would unlikely 被 conducted deal 。 e.g ， you unable 在 HTML block 內 use Markdown form 的<code>* stressed *</code>。</p>
+
+<p>HTML 的 district segment tag like<code>&lt; span &gt;</code>、<code>&lt; cite &gt;</code>、<code>&lt; del &gt;</code>則 不 restricted system ， could 在 Markdown 的 paragraph 、 list or heading in arbitrarily use 。 according to personal habit ， even could 不 用 Markdown format ， 而 adopt HTML tag 來 format of 。 examples explain ： if prefer HTML 的<code>&lt; a &gt;</code>or<code>&lt; img &gt;</code>tag ， could direct use these tag ， 而 不 用 Markdown offer 的 link or shadow 像 marked show grammar 。</p>
+
+<p>HTML district segment tag 和 block tag different ， 在 district segment tag 的 range 內 ， Markdown 的 grammar 是 effective 的 。</p>
+
+<h3 id="autoescape">special character2 automatically converted</h3>
+
+<p>在 HTML file 中 ， have two 個 character2 need special deal ：<code>&lt;</code>和<code>&amp;</code>。<code>&lt;</code>symbol 用 於 starting tag<code>&amp;</code>symbol 則 用 於 mark HTML entity ， if you just wanted use these symbol ， you must 要 use entity 的 form ， like<code>&amp; lt;</code>和<code>&amp; amp;</code>。</p>
+
+<p><code>&amp;</code>symbol actually very easy let writing web road file 的 people feel bothering ， if you 要 hitting 「 at &amp; T 」 ， you must 要 written 「<code>at &amp; amp; T</code>」 ， still get converted web address 內 的<code>&amp;</code>symbol ， if you 要 link 到 ：</p>
+
+<pre><code>http : / / images . google . com / images ? num = 30 &amp; q = larry + bird 
+</code></pre>
+
+<p>you must 要 putting web address turn 成 ：</p>
+
+<pre><code>http : / / images . google . com / images ? num = 30 &amp; amp; q = larry + bird 
+</code></pre>
+
+<p>ability put link tag 的<code>href</code>attributes in 。 needless to say 也 know this very easy forget ， this 也 maybe HTML standard checked 所 checked 到 的 mistake 中 ， amounts most 的 。</p>
+
+<p>Markdown allow you direct use these symbol ， but you 要 careful jump take off character2 的 use ， if you 是 在 HTML entity 中 use<code>&amp;</code>symbol if ， it unlikely 被 converted ， 而 在 other situation 下 ， it 則 會 被 converted 成<code>&amp; amp;</code>。 so you if 要 在 file 中 plugged an book right 的 symbol ， you could such write ：</p>
+
+<pre><code>&amp; copy; 
+</code></pre>
+
+<p>Markdown would unlikely couple this segment text doing modify ， but if you such write ：</p>
+
+<pre><code>at &amp; T 
+</code></pre>
+
+<p>Markdown 就 會 would it switch ：</p>
+
+<pre><code>at &amp; amp; T 
+</code></pre>
+
+<p>similar 的 situation 也 會 happened 在<code>&lt;</code>symbol 上 ， because Markdown support<a href="http://markdown.tw/#html">line 內 HTML</a>， if you 是 use<code>&lt;</code>symbol as HTML tag use ， that Markdown neither 會 couple it doing any converted ， but if you 是 write ：</p>
+
+<pre><code>4 &lt; 5 
+</code></pre>
+
+<p>Markdown will putting it converted 為 ：</p>
+
+<pre><code>4 &amp; lt; 5 
+</code></pre>
+
+<p>but need attention 的 是 ， code range 內 ， whether line 內 still 是 block ，<code>&lt;</code>和<code>&amp;</code>two 個 symbol all<em>necessarily</em>會 被 converted 成 HTML entity ， this item identity let you could very easy 地 用 Markdown write HTML code （ 和 HTML relatively terms 。 在 HTML grammar 中 ， you 要 putting possession 的<code>&lt;</code>和<code>&amp;</code>all converted 為 HTML entity ， ability 在 HTML file inside write HTML code 。 ）</p>
+
+<hr>
+
+<h2 id="block">block element</h2>
+
+<h3 id="p">paragraph 和 change line</h3>
+
+<p>an paragraph 是 由 an over connection connect 的 line sentence composition ， 而 an over 的 empty line 則 會 cut separated different 的 paragraph （ empty line 的 definition 是 showing 上 looks like empty line ， 便 會 被 regarded empty line 。 for example ， if the certain line only include blank 和 tab ， 則 that line 也 會 被 regarded empty line ） ， general 的 paragraph without 要 用 blank or break line indent 。</p>
+
+<p>「 an over connection connect 的 line sentence composition 」 this sentence saying actually hint 了 Markdown allow paragraph 內 的 compulsive break line ， this identity 和 other most 的 text - to - HTML format vary kind （ includes MovableType 的 「 Convert Line Breaks 」 options ） ， other 的 format 會 putting each break line all turn 成<code>&lt; br / &gt;</code>tag 。</p>
+
+<p>if you<em>really</em>wanted plugged<code>&lt; br / &gt;</code>tag if ， 在 line tail plus two 個 over 的 blank ， then press enter 。</p>
+
+<p>yes ， this indeed need flower compare much effort 來 plugged<code>&lt; br / &gt;</code>， but 「 each change line all converted 為<code>&lt; br / &gt;</code>」 的 method 在 Markdown 中 not fit ， Markdown 中 email formula 的<a href="http://markdown.tw/#blockquote">block quoted speech</a>和 much paragraph 的<a href="http://markdown.tw/#list">list</a>在 use change line 來 layout 的 time ， not_only better 用 ， still better read 。</p>
+
+<h3 id="header">heading</h3>
+
+<p>Markdown support two kind heading 的 grammar ，<a href="http://docutils.sourceforge.net/mirror/setext.html">Setext</a>和<a href="http://www.aaronsw.com/2002/atx/">atx</a>form 。</p>
+
+<p>Setext form 是 用 end line2 的 form ， exploit<code>=</code>（ highest rank heading ） 和<code>-</code>（ second rank heading ） ， e.g ：</p>
+
+<pre><code>This is an H1 
+ = = = = = = = = = = = = = 
+
+ This is an H2 
+ - - - - - - - - - - - - - 
+</code></pre>
+
+<p>any amounts 的<code>=</code>和<code>-</code>all could effective fruit 。</p>
+
+<p>Atx form 則 是 在 line first plugged 1 到 6 個<code>#</code>， each correspond 到 heading 1 到 6 rank ， e.g ：</p>
+
+<pre><code># This is an H1 
+
+ # # This is an H2 
+
+ # # # # # # This is an H6 
+</code></pre>
+
+<p>you could selective 地 「 shut 」 atx style 的 heading ， this purely just beautiful 用 的 ， if feel such looks compare cozy ， you 就 could 在 line tail plus<code>#</code>， 而 line tail 的<code>#</code>amounts neither 用 和 beginning alike （ line first 的 wells word amounts decided heading 的 rank number ） ：</p>
+
+<pre><code># This is an H1 # 
+
+ # # This is an H2 # # 
+
+ # # # This is an H3 # # # # # # 
+</code></pre>
+
+<h3 id="blockquote">block quoted speech</h3>
+
+<p>Markdown use email form 的 block quoted speech ， if you very acquainted how 在 email correspondence 中 quoted speech ， you 就 know how 在 Markdown file 中 establish an block quoted speech ， that 會 looks like you compulsive break line ， then 在 each line 的 most fore plus<code>&gt;</code>：</p>
+
+<pre><code>&gt; This is a blockquote with two paragraphs . Lorem ipsum dolor sit amet , 
+ &gt; consectetuer adipiscing elit . Aliquam hendrerit mi posuere lectus . 
+ &gt; Vestibulum enim wisi , viverra nec , fringilla in , laoreet vitae , risus . 
+ &gt; 
+ &gt; Donec sit amet nisl . Aliquam semper ipsum sit amet velit . Suspendisse 
+ &gt; id sem consectetuer libero luctus adipiscing . 
+</code></pre>
+
+<p>Markdown 也 allow you only 在 whole paragraph 的 first line most fore plus<code>&gt;</code>：</p>
+
+<pre><code>&gt; This is a blockquote with two paragraphs . Lorem ipsum dolor sit amet , 
+ consectetuer adipiscing elit . Aliquam hendrerit mi posuere lectus . 
+ Vestibulum enim wisi , viverra nec , fringilla in , laoreet vitae , risus . 
+
+ &gt; Donec sit amet nisl . Aliquam semper ipsum sit amet velit . Suspendisse 
+ id sem consectetuer libero luctus adipiscing . 
+</code></pre>
+
+<p>block quoted speech could have stratum （ e.g ： quoted speech 內 的 quoted speech ） ， just according layer number plus different amounts 的<code>&gt;</code>：</p>
+
+<pre><code>&gt; This is the first level of quoting . 
+ &gt; 
+ &gt; &gt; This is nested blockquote . 
+ &gt; 
+ &gt; Back to the first level . 
+</code></pre>
+
+<p>quoted speech 的 block 內 也 could use other 的 Markdown grammar ， includes heading 、 list 、 code block 等 ：</p>
+
+<pre><code>&gt; # # This is a header . 
+ &gt; 
+ &gt; 1 . This is the first list item . 
+ &gt; 2 . This is the second list item . 
+ &gt; 
+ &gt; Here's some example code : 
+ &gt; 
+ &gt; return shell_exec ( " echo $ input | $ markdown_script " ) ; 
+</code></pre>
+
+<p>any standard 的 text editor tor all able simply establish email style 的 quoted speech ， e.g BBEdit ， you could choose text after then from selected single 中 choose<em>addition quoted speech stratum</em>。</p>
+
+<h3 id="list">list</h3>
+
+<p>Markdown support ordered list 和 disorderly list 。</p>
+
+<p>disorderly list use star number 、 plus number or less number as list mark ：</p>
+
+<pre><code>* Red 
+ * Green 
+ * Blue 
+</code></pre>
+
+<p>equal 於 ：</p>
+
+<pre><code>+ Red 
+ + Green 
+ + Blue 
+</code></pre>
+
+<p>也 equal 於 ：</p>
+
+<pre><code>- Red 
+ - Green 
+ - Blue 
+</code></pre>
+
+<p>ordered list 則 use digit then an english dot ：</p>
+
+<pre><code>1 . Bird 
+ 2 . McHale 
+ 3 . Parish 
+</code></pre>
+
+<p>very important 的 a_little 是 ， you 在 list mark 上 use 的 digit not 會 influence export 的 HTML results ， above 的 list 所 generate 的 HTML mark 為 ：</p>
+
+<pre><code>&lt; ol &gt; 
+ &lt; li &gt; Bird &lt; / li &gt; 
+ &lt; li &gt; McHale &lt; / li &gt; 
+ &lt; li &gt; Parish &lt; / li &gt; 
+ &lt; / ol &gt; 
+</code></pre>
+
+<p>if your list mark written ：</p>
+
+<pre><code>1 . Bird 
+ 1 . McHale 
+ 1 . Parish 
+</code></pre>
+
+<p>or even 是 ：</p>
+
+<pre><code>3 . Bird 
+ 1 . McHale 
+ 8 . Parish 
+</code></pre>
+
+<p>you city gotten totally identical 的 HTML export 。 focused lie_in ， you could let Markdown file 的 list digit 和 export 的 results identical ， or you lazy a_little ， you could totally 不 用 care digit 的 correctness 。</p>
+
+<p>if you use lazy lazy 的 write lex ， suggest first 個 item preferably still 是 from 「 1 . 」 begin ， because Markdown coming may support ordered list 的 start attributes 。</p>
+
+<p>list item mark usual 是 on most left ， but actually 也 could indent ， most three 個 blank ， item mark behind 則 necessarily 要 then least an blank or tab 。</p>
+
+<p>要 let list looks more pretty ， you could putting content 用 fixed 的 indent sort out great ：</p>
+
+<pre><code>* Lorem ipsum dolor sit amet , consectetuer adipiscing elit . 
+ Aliquam hendrerit mi posuere lectus . Vestibulum enim wisi , 
+ viverra nec , fringilla in , laoreet vitae , risus . 
+ * Donec sit amet nisl . Aliquam semper ipsum sit amet velit . 
+ Suspendisse id sem consectetuer libero luctus adipiscing . 
+</code></pre>
+
+<p>but if you very lazy ， that neither necessarily need ：</p>
+
+<pre><code>* Lorem ipsum dolor sit amet , consectetuer adipiscing elit . 
+ Aliquam hendrerit mi posuere lectus . Vestibulum enim wisi , 
+ viverra nec , fringilla in , laoreet vitae , risus . 
+ * Donec sit amet nisl . Aliquam semper ipsum sit amet velit . 
+ Suspendisse id sem consectetuer libero luctus adipiscing . 
+</code></pre>
+
+<p>if list item 間 用 empty line separate ， Markdown 會 putting item 的 content 在 export time 用<code>&lt; p &gt;</code>tag bag standup ， examples for ：</p>
+
+<pre><code>* Bird 
+ * Magic 
+</code></pre>
+
+<p>會 被 converted 為 ：</p>
+
+<pre><code>&lt; ul &gt; 
+ &lt; li &gt; Bird &lt; / li &gt; 
+ &lt; li &gt; Magic &lt; / li &gt; 
+ &lt; / ul &gt; 
+</code></pre>
+
+<p>but this ：</p>
+
+<pre><code>* Bird 
+
+ * Magic 
+</code></pre>
+
+<p>會 被 converted 為 ：</p>
+
+<pre><code>&lt; ul &gt; 
+ &lt; li &gt; &lt; p &gt; Bird &lt; / p &gt; &lt; / li &gt; 
+ &lt; li &gt; &lt; p &gt; Magic &lt; / p &gt; &lt; / li &gt; 
+ &lt; / ul &gt; 
+</code></pre>
+
+<p>list item could include much 個 paragraph ， each item 下 的 paragraph all must indent 4 個 blank or an tab ：</p>
+
+<pre><code>1 . This is a list item with two paragraphs . Lorem ipsum dolor 
+ sit amet , consectetuer adipiscing elit . Aliquam hendrerit 
+ mi posuere lectus . 
+
+ Vestibulum enim wisi , viverra nec , fringilla in , laoreet 
+ vitae , risus . Donec sit amet nisl . Aliquam semper ipsum 
+ sit amet velit . 
+
+ 2 . Suspendisse id sem consectetuer libero luctus adipiscing . 
+</code></pre>
+
+<p>if you each line all have indent ， looks 會 look great lot ， certainly ， again 地 ， if you very lazy lazy ， Markdown 也 allow ：</p>
+
+<pre><code>* This is a list item with two paragraphs . 
+
+ This is the second paragraph in the list item . You're 
+ only required to indent the first line . Lorem ipsum dolor 
+ sit amet , consectetuer adipiscing elit . 
+
+ * Another item in the same list . 
+</code></pre>
+
+<p>if 要 在 list item 內 put quoted speech ， that<code>&gt;</code>就 need indent ：</p>
+
+<pre><code>* a list item with a blockquote : 
+
+ &gt; This is a blockquote 
+ &gt; inside a list item . 
+</code></pre>
+
+<p>if 要 amp code block if ， that block 就 need indent<em>twice</em>， that_is, 8 個 blank or two 個 tab ：</p>
+
+<pre><code>* a list item with a code block : 
+
+ &lt; code goes here &gt; 
+</code></pre>
+
+<p>certainly ， item list very may accidentally generate ， like below such 的 write lex ：</p>
+
+<pre><code>1986 . What a great season . 
+</code></pre>
+
+<p>in other words ， that_is, 在 line first appear<em>digit － dot － blank</em>， 要 avoid such 的 situation ， you could 在 dot fore plus anti inclined line2 。</p>
+
+<pre><code>1986 \ . What a great season . 
+</code></pre>
+
+<h3 id="precode">code block</h3>
+
+<p>和 program related 的 writing or tag language source_code usual 會 have already layout great 的 code block ， usual these block we not hope it 以 general paragraph file 的 manner going layout ， but shines original 的 appearance showing ， Markdown 會 用<code>&lt; pre &gt;</code>和<code>&lt; code &gt;</code>tag 來 putting code block bag standup 。</p>
+
+<p>要 在 Markdown 中 establish code block very simple ， just simply indent 4 個 blank or 1 個 tab 就 could ， e.g ， below 的 entry ：</p>
+
+<pre><code>This is a normal paragraph : 
+
+ This is a code block . 
+</code></pre>
+
+<p>Markdown 會 converted 成 ：</p>
+
+<pre><code>&lt; p &gt; This is a normal paragraph : &lt; / p &gt; 
+
+ &lt; pre &gt; &lt; code &gt; This is a code block . 
+ &lt; / code &gt; &lt; / pre &gt; 
+</code></pre>
+
+<p>this each line one rank 的 indent （ 4 個 blank or 1 個 tab ） ， city 被 removing ， e.g ：</p>
+
+<pre><code>Here is an example of AppleScript : 
+
+ tell application " Foo " 
+ beep 
+ end tell 
+</code></pre>
+
+<p>會 被 converted 為 ：</p>
+
+<pre><code>&lt; p &gt; Here is an example of AppleScript : &lt; / p &gt; 
+
+ &lt; pre &gt; &lt; code &gt; tell application " Foo " 
+ beep 
+ end tell 
+ &lt; / code &gt; &lt; / pre &gt; 
+</code></pre>
+
+<p>an code block 會 has lasted 到 no indent 的 that line （ or file end ） 。</p>
+
+<p>在 code block inside ，<code>&amp;</code>、<code>&lt;</code>和<code>&gt;</code>會 automatically turn 成 HTML entity ， such 的 manner let you strongly easy use Markdown plugged model example 用 的 HTML source_code ， only need copy paste 上 ， 再 plus indent 就 could 了 ， left over 的 Markdown city help you deal ， e.g ：</p>
+
+<pre><code>&lt; div class = " footer " &gt; 
+ &amp; copy; 2004 Foo Corporation 
+ &lt; / div &gt; 
+</code></pre>
+
+<p>會 被 converted 為 ：</p>
+
+<pre><code>&lt; pre &gt; &lt; code &gt; &amp; lt; div class = " footer " &amp; gt; 
+ &amp; amp; copy; 2004 Foo Corporation 
+ &amp; lt; / div &amp; gt; 
+ &lt; / code &gt; &lt; / pre &gt; 
+</code></pre>
+
+<p>code block 中 ， general 的 Markdown grammar unlikely 被 converted ， like star number 便 just star number ， this representation you could very easy 地 以 Markdown grammar write Markdown grammar related 的 file 。</p>
+
+<h3 id="hr">split line2</h3>
+
+<p>you could 在 line 中 用 three 個 or over 的 star number 、 less number 、 end line2 來 establish an split line2 ， line 內 cannot have other thing 。 you 也 could 在 star number middle plugged blank 。 below each write lex all could establish split line2 ：</p>
+
+<pre><code>* * * 
+
+ * * * 
+
+ * * * * * 
+
+ - - - 
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+</code></pre>
+
+<hr>
+
+<h2 id="span">district segment element</h2>
+
+<h3 id="link">link</h3>
+
+<p>Markdown support two kind form 的 link grammar ：<em>line 內</em>和<em>reference</em>two kind form 。</p>
+
+<p>regardless 是 where one kind ， link 的 text all 是 用 [ square bracket number ] 來 mark 。</p>
+
+<p>要 establish an line 內 form 的 link ， just 在 square piece1 bracket number behind immediately then bracket number and plugged web address link to ， if you still wanted plus link 的 title text ， just 在 web address behind ， 用 double quoted number putting title text bag standup to ， e.g ：</p>
+
+<pre><code>This is [ an example ] ( http : / / example . com / " Title " ) inline link . 
+
+ [ This link ] ( http : / / example . net / ) has no title attribute . 
+</code></pre>
+
+<p>會 generate ：</p>
+
+<pre><code>&lt; p &gt; This is &lt; a href = " http : / / example . com / " title = " Title " &gt; 
+ an example &lt; / a &gt; inline link . &lt; / p &gt; 
+
+ &lt; p &gt; &lt; a href = " http : / / example . net / " &gt; This link &lt; / a &gt; has no 
+ title attribute . &lt; / p &gt; 
+</code></pre>
+
+<p>if you 是 要 link 到 likewise hosts 的 resources ， you could use relatively path ：</p>
+
+<pre><code>See my [ About ] ( / about / ) page for details . 
+</code></pre>
+
+<p>reference form 的 link use additional an square bracket number connect 在 link text 的 bracket number behind ， 而 在 second 個 square bracket number inside 要 fill enter in order to distinguish knowledge link 的 tag ：</p>
+
+<pre><code>This is [ an example ] [ id ] reference - style link . 
+</code></pre>
+
+<p>you 也 could selective 地 在 two 個 square bracket number middle plus blank ：</p>
+
+<pre><code>This is [ an example ] [ id ] reference - style link . 
+</code></pre>
+
+<p>then ， 在 file 的 arbitrarily office ， you could putting this tag 的 link content definition come_out ：</p>
+
+<pre><code>[ id ] : http : / / example . com / " Optional Title Here " 
+</code></pre>
+
+<p>link definition 的 form 為 ：</p>
+
+<ul>
+<li>square bracket number ， inside entry link 的 distinguish knowledge 用 tag</li>
+<li>then an colon</li>
+<li>then an over 的 blank or tab</li>
+<li>then link 的 web address</li>
+<li>selective 地 then title content ， could 用 single quoted number 、 double quoted number or bracket arc bag with</li>
+</ul>
+
+<p>below this three kind link 的 definition all 是 identical ：</p>
+
+<pre><code>[ foo ] : http : / / example . com / " Optional Title Here " 
+ [ foo ] : http : / / example . com / 'Optional Title Here' 
+ [ foo ] : http : / / example . com / ( Optional Title Here ) 
+</code></pre>
+
+<p><strong>please attention ：</strong>have an a known 的 problem 是 Markdown . pl 1 . 0 . 1 會 overlook single quoted number bag standup 的 link title 。</p>
+
+<p>link web address 也 could 用 square bracket number bag standup ：</p>
+
+<pre><code>[ id ] : &lt; http : / / example . com / &gt; " Optional Title Here " 
+</code></pre>
+
+<p>you 也 could putting title attributes put 下 line ， 也 could plus some indent ， web address too long if ， such 會 compare good looking ：</p>
+
+<pre><code>[ id ] : http : / / example . com / longish / path / to / resource / here 
+ " Optional Title Here " 
+</code></pre>
+
+<p>web address definition only 在 generate link 的 time used ， not 會 direct appear 在 file among 。</p>
+
+<p>link distinguish knowledge tag could have alphabet 、 digit 、 blank 和 marked point symbol ， but and<em>不</em>distinguish magnitude write ， therefore below two 個 link 是 alike 的 ：</p>
+
+<pre><code>[ link text ] [ a ] 
+ [ link text ] [ a ] 
+</code></pre>
+
+<p><em>pre assume 的 link tag</em>function let you could omission designation link tag ， this kind situation 下 ， link tag 和 link text 會 regarded identical ， 要 用 pre assume link tag just 在 link text behind plus an vacant square bracket number ， if you 要 let " Google " link 到 google . com ， you could simplify 成 ：</p>
+
+<pre><code>[ Google ] [ ] 
+</code></pre>
+
+<p>then definition link content ：</p>
+
+<pre><code>[ Google ] : http : / / google . com / 
+</code></pre>
+
+<p>due to link text possible include blank ， so this kind simplify 的 tag 內 也 could include much 個 text ：</p>
+
+<pre><code>Visit [ Daring Fireball ] [ ] for more information . 
+</code></pre>
+
+<p>then then definition link ：</p>
+
+<pre><code>[ Daring Fireball ] : http : / / daringfireball . net / 
+</code></pre>
+
+<p>link 的 definition could on file middle any an place ， i compare prejudiced great direct on link appear paragraph 的 behind ， you 也 could putting it on file last surface ， 就 like comment solution alike 。</p>
+
+<p>below 是 an reference formula link 的 model example ：</p>
+
+<pre><code>I get 10 times more traffic from [ Google ] [ 1 ] than from 
+ [ Yahoo ] [ 2 ] or [ MSN ] [ 3 ] . 
+
+ [ 1 ] : http : / / google . com / " Google " 
+ [ 2 ] : http : / / search . yahoo . com / " Yahoo Search " 
+ [ 3 ] : http : / / search . msn . com / " MSN Search " 
+</code></pre>
+
+<p>if changed 用 link name 的 manner write ：</p>
+
+<pre><code>I get 10 times more traffic from [ Google ] [ ] than from 
+ [ Yahoo ] [ ] or [ MSN ] [ ] . 
+
+ [ google ] : http : / / google . com / " Google " 
+ [ yahoo ] : http : / / search . yahoo . com / " Yahoo Search " 
+ [ msn ] : http : / / search . msn . com / " MSN Search " 
+</code></pre>
+
+<p>above two kind write lex city generate below 的 HTML 。</p>
+
+<pre><code>&lt; p &gt; I get 10 times more traffic from &lt; a href = " http : / / google . com / " 
+ title = " Google " &gt; Google &lt; / a &gt; than from 
+ &lt; a href = " http : / / search . yahoo . com / " title = " Yahoo Search " &gt; Yahoo &lt; / a &gt; 
+ or &lt; a href = " http : / / search . msn . com / " title = " MSN Search " &gt; MSN &lt; / a &gt; . &lt; / p &gt; 
+</code></pre>
+
+<p>below 是 用 line 內 form write 的 likewise one segment content 的 Markdown file ， offer as compare it 用 ：</p>
+
+<pre><code>I get 10 times more traffic from [ Google ] ( http : / / google . com / " Google " ) 
+ than from [ Yahoo ] ( http : / / search . yahoo . com / " Yahoo Search " ) or 
+ [ MSN ] ( http : / / search . msn . com / " MSN Search " ) . 
+</code></pre>
+
+<p>reference formula 的 link actually focused 不 lie_in it compare great write ， but it compare great read ， compare a bit above 的 model example ， use reference formula 的 article itself only 81 個 character2 ， but 用 line 內 form 的 link 卻 會 addition 到 176 個 character2 ， if 是 用 pure HTML format 來 write ， 會 have 234 個 character2 ， 在 HTML format 中 ， tag than text also much 。</p>
+
+<p>use Markdown 的 reference formula link ， could let file more like browse tor last generate 的 results ， let you could putting some mark related 的 news move paragraph text addition ， you 就 could addition link 而 不 let article 的 read feel 被 interrupt 。</p>
+
+<h3 id="em">stressed</h3>
+
+<p>Markdown use star number （<code>*</code>） 和 end line2 （<code>_</code>） as mark stressed word word 的 symbol ， 被<code>*</code>or<code>_</code>surrounded 的 word word 會 被 turn 成 用<code>&lt; em &gt;</code>tag surrounded ， 用 two 個<code>*</code>or<code>_</code>bag standup if ， 則 會 被 turn 成<code>&lt; strong &gt;</code>， e.g ：</p>
+
+<pre><code>* single asterisks * 
+
+ _single underscores_ 
+
+ * * double asterisks * * 
+
+ __double underscores__ 
+</code></pre>
+
+<p>會 turn 成 ：</p>
+
+<pre><code>&lt; em &gt; single asterisks &lt; / em &gt; 
+
+ &lt; em &gt; single underscores &lt; / em &gt; 
+
+ &lt; strong &gt; double asterisks &lt; / strong &gt; 
+
+ &lt; strong &gt; double underscores &lt; / strong &gt; 
+</code></pre>
+
+<p>you could casual 用 you liked 的 style ， sole 的 limit 是 ， you 用 what symbol opened start tag ， necessary 用 what symbol end 。</p>
+
+<p>stressed 也 could direct insert 在 text middle ：</p>
+
+<pre><code>un * frigging * believable 
+</code></pre>
+
+<p>but if your<code>*</code>和<code>_</code>both sides all free white if ， they 就 only 會 被 as ordinary 的 symbol 。</p>
+
+<p>if 要 在 text before and after direct plugged ordinary 的 star number or end line2 ， you could 用 anti inclined line2 ：</p>
+
+<pre><code>\ * this text is surrounded by literal asterisks \ * 
+</code></pre>
+
+<h3 id="code">code</h3>
+
+<p>if 要 mark one little segment line 內 code ， you could 用 anti quoted number putting it bag standup （<code>`</code>） ， e.g ：</p>
+
+<pre><code>Use the ` printf ( ) ` function . 
+</code></pre>
+
+<p>會 generate ：</p>
+
+<pre><code>&lt; p &gt; Use the &lt; code &gt; printf ( ) &lt; / code &gt; function . &lt; / p &gt; 
+</code></pre>
+
+<p>if 要 在 code district segment 內 plugged anti quoted number ， you could 用 much 個 anti quoted number 來 opened start 和 end code district segment ：</p>
+
+<pre><code>` ` There is a literal backtick ( ` ) here . ` ` 
+</code></pre>
+
+<p>this segment grammar 會 generate ：</p>
+
+<pre><code>&lt; p &gt; &lt; code &gt; There is a literal backtick ( ` ) here . &lt; / code &gt; &lt; / p &gt; 
+</code></pre>
+
+<p>code district segment 的 starting 和 end end all could put into a an blank ， starting end behind an ， end end fore an ， such you 就 could 在 district segment 的 outset 就 plugged anti quoted number ：</p>
+
+<pre><code>a single backtick in a code span : ` ` ` ` ` 
+
+ a backtick - delimited string in a code span : ` ` ` foo ` ` ` 
+</code></pre>
+
+<p>會 generate ：</p>
+
+<pre><code>&lt; p &gt; a single backtick in a code span : &lt; code &gt; ` &lt; / code &gt; &lt; / p &gt; 
+
+ &lt; p &gt; a backtick - delimited string in a code span : &lt; code &gt; ` foo ` &lt; / code &gt; &lt; / p &gt; 
+</code></pre>
+
+<p>在 code district segment 內 ，<code>&amp;</code>和 square bracket number city 被 turn 成 HTML entity ， such 會 compare easy plugged HTML source_code ， Markdown 會 putting below this segment ：</p>
+
+<pre><code>Please don't use any ` &lt; blink &gt; ` tags . 
+</code></pre>
+
+<p>switch ：</p>
+
+<pre><code>&lt; p &gt; Please don't use any &lt; code &gt; &amp; lt; blink &amp; gt; &lt; / code &gt; tags . &lt; / p &gt; 
+</code></pre>
+
+<p>you 也 could such write ：</p>
+
+<pre><code>` &amp; # 8212; ` is the decimal - encoded equivalent of ` &amp; mdash; ` . 
+</code></pre>
+
+<p>以 generate ：</p>
+
+<pre><code>&lt; p &gt; &lt; code &gt; &amp; amp; # 8212; &lt; / code &gt; is the decimal - encoded 
+ equivalent of &lt; code &gt; &amp; amp; mdash; &lt; / code &gt; . &lt; / p &gt; 
+</code></pre>
+
+<h3 id="img">picture</h3>
+
+<p>very evidently ， 要 在 pure text application 中 design an 「 natural 」 的 grammar 來 plugged picture 是 have necessarily difficulty 的 。</p>
+
+<p>Markdown use one kind 和 link very resemblance 的 grammar 來 mark picture ， likewise 也 allow two kind style ：<em>line 內</em>和<em>reference</em>。</p>
+
+<p>line 內 picture 的 grammar looks like ：</p>
+
+<pre><code>! [ Alt text ] ( / path / to / img . jpg ) 
+
+ ! [ Alt text ] ( / path / to / img . jpg " Optional title " ) 
+</code></pre>
+
+<p>detailed recount follows ：</p>
+
+<ul>
+<li>an amazing number<code>!</code></li>
+<li>then an square bracket number ， inside amp 上 picture 的 alternative text</li>
+<li>then an ordinary bracket number ， inside amp 上 picture 的 web address ， last still could 用 quoted number bag lived and plus 
+ selective 的 'title' text 。</li>
+</ul>
+
+<p>reference formula 的 picture grammar 則 long get 像 such ：</p>
+
+<pre><code>! [ Alt text ] [ id ] 
+</code></pre>
+
+<p>「 id 」 是 picture reference 的 name ， picture reference 的 definition manner 則 和 link reference alike ：</p>
+
+<pre><code>[ id ] : url / to / image " Optional title attribute " 
+</code></pre>
+
+<p>到 currently until ， Markdown still no way designation picture 的 wide high ， if you need if ， you could use ordinary 的<code>&lt; img &gt;</code>tag 。</p>
+
+<hr>
+
+<h2 id="misc">other</h2>
+
+<h3 id="autolink">automatically link</h3>
+
+<p>Markdown support compare curt automatically link form 來 deal web address 和 email letter box ， just 是 用 square bracket number bag standup ， Markdown 就 會 automatically putting it turn 成 link ， link 的 text 就 和 link position alike ， e.g ：</p>
+
+<pre><code>&lt; http : / / example . com / &gt; 
+</code></pre>
+
+<p>Markdown 會 switch ：</p>
+
+<pre><code>&lt; a href = " http : / / example . com / " &gt; http : / / example . com / &lt; / a &gt; 
+</code></pre>
+
+<p>automatically 的 mail link 也 very similar ， just Markdown 會 prior doing an encoded converted 的 process ， putting text character2 turn 成 16 enter location yard 的 HTML entity ， such 的 format could confused some poorly 的 letter box addresses collect robot ， e.g ：</p>
+
+<pre><code>&lt; address @ example . com &gt; 
+</code></pre>
+
+<p>Markdown 會 turn 成 ：</p>
+
+<pre><code>&lt; a href = " &amp; # x6D; &amp; # x61; i &amp; # x6C; &amp; # x74; &amp; # x6F; : &amp; # x61; &amp; # x64; &amp; # x64; &amp; # x72; &amp; # x65; 
+ &amp; # 115; &amp; # 115; &amp; # 64; &amp; # 101; &amp; # 120; &amp; # x61; &amp; # 109; &amp; # x70; &amp; # x6C; e &amp; # x2E; &amp; # 99; &amp; # 111; 
+ &amp; # 109; " &gt; &amp; # x61; &amp; # x64; &amp; # x64; &amp; # x72; &amp; # x65; &amp; # 115; &amp; # 115; &amp; # 64; &amp; # 101; &amp; # 120; &amp; # x61; 
+ &amp; # 109; &amp; # x70; &amp; # x6C; e &amp; # x2E; &amp; # 99; &amp; # 111; &amp; # 109; &lt; / a &gt; 
+</code></pre>
+
+<p>在 browse tor inside ， this segment word string 會 become an could hits 的 「 address @ example . com 」 link 。</p>
+
+<p>（ this kind practice though could confused many 的 robot ， but and unable all block down ， but such 也 than what all 不 do some 。 anyway ， public your letter box after all 會 quoted 來 ad correspondence 的 。 ）</p>
+
+<h3 id="backslash">jump take off character2</h3>
+
+<p>Markdown could exploit anti inclined line2 來 plugged some 在 grammar 中 have other mean 的 symbol ， e.g ： if you wanted 用 star number plus 在 text next to 的 manner 來 make stressed effect （ but 不 用<code>&lt; em &gt;</code>tag ） ， you could 在 star number 的 fore plus anti inclined line2 ：</p>
+
+<pre><code>\ * literal asterisks \ * 
+</code></pre>
+
+<p>Markdown support 在 below these symbol fore plus anti inclined line2 來 helped plugged ordinary 的 symbol ：</p>
+
+<pre><code>\ anti inclined line2 
+ ` anti quoted number 
+ * star number 
+ _ end line2 
+ { } big bracket number 
+ [ ] square bracket number 
+ ( ) bracket number 
+ # wells word number 
+ + plus number 
+ - less number 
+ . english dot 
+ ! amazing number 
+</code></pre>
+
+<h2 id="acknowledgement">grateful</h2>
+
+<p>grateful<a href="https://twitter.com/#!/leafy7382">leafy7382</a>assisting translate ，<a href="http://iamhlb.com/">hlb</a>、<a href="http://twitter.com/randylien">Randylien</a>help profit draft ，<a href="https://twitter.com/#!/ethantw">ethantw</a>的<a href="http://css.hanzi.co/">chinese character standard format</a>，<a href="http://kidwm.net/">WM</a>return text mistake 。</p>
+
+
+</div>
+
+<div id="comments">
+
+<div id="disqus_thread"><iframe id="dsq-app1" name="dsq-app1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Markdown_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 5606px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'markdowntw'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = 'unique_dynamic_id_1234';
+    // var disqus_url = 'http://example.com/permalink-to-page.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the &lt; a href = " http : / / disqus . com / ? ref_noscript " &gt; comments powered by Disqus . &lt; / a &gt;</noscript>
+
+</div>
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21880461-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+        </script>
+
+        <script src="./Markdown_files/gib3xul.js.下載"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        <script src="./Markdown_files/han.min.js.下載"></script>
+    
+
+<iframe style="display: none;" src="./Markdown_files/saved_resource(1).html"></iframe></body></html>
