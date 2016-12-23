@@ -76,11 +76,11 @@ MT.mt = function(s, s2t) {
       var sw = sword.toLowerCase();
       var tword = MT.wordMt(sw, s2t);
       if (typeof tword === 'undefined') {
-        if (/^((\w+)|([\u4E00-\u9FFF]+]))$/i.test(sword) && 
-          typeof e2c[sw] !=='undefined' && typeof c2e[sw] !== 'undefined')
-          tword = sword+'=?';
+        if (/^((\w+)|([\u4E00-\u9FFF]+]))$/i.test(sw) && 
+          typeof e2c[sw] ==='undefined' && typeof c2e[sw] === 'undefined')
+          tword = sw+'=?';
         else
-          tword = sword;
+          tword = sw;
       }
     }
     t.push(tword);
